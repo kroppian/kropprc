@@ -11,13 +11,22 @@ puts 'Checking for vim...'
 `vim --version`
 fail 'vim not installed. Install and start the setup again' if not $?.success?
 
-puts 'Creating the .vim directory...'
-`mkdir -p ~/.vim/bundle`
-fail "Failed to create the .vim directory" if not $?.success?
 
-puts 'Attempting to clone Vundle...'
-`git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim`
-fail "Failed to clone Vundle." if not $?.success?
+  puts 'Creating the .vim directory...'
+  `mkdir -p ~/.vim/bundle`
+  fail "Failed to create the .vim directory" if not $?.success?
+
+
+if not File.directory?("/home/iankropp/.vim/bundle/Vundle.vim")
+
+  puts 'Attempting to clone Vundle...'
+  `git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim`
+  fail "Failed to clone Vundle." if not $?.success?
+
+else 
+  puts 'Vundle already deployed'
+
+end
 
 puts 'Copying .vimrc directory...'
 `cp  vimrc ~/.vimrc`
