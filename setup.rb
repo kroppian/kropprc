@@ -7,13 +7,21 @@ def fail(message)
 
 end
 
+puts 'Checking for vim...'
+`vim --version`
+fail 'vim not installed. Install and start the setup again' if not $?.success?
 
 
-puts 'Copying .vim directory...'
-`cp -R vim ~/.vim`
-fail "Failed to deploy .vim directory" if not $?.success?
 
-puts 'Success! Copying .vimrc directory...'
+puts 'Creating the .vim directory...'
+`mkdir -p ~/.vim/bundle`
+fail "Failed to create the .vim directory" if not $?.success?
+
+puts 'Attempting to clone Vundle...'
+`git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim`
+fail "Failed to clone Vundle." if not $?.success?
+
+puts ' Copying .vimrc directory...'
 `cp  vimrc ~/.vimrc`
 fail "Failed to deploy .vimrc" if not $?.success?
 
