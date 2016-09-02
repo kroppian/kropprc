@@ -7,6 +7,8 @@ def fail(message)
 
 end
 
+puts "OS: [#{RUBY_PLATFORM}]"
+
 puts 'Checking for vim...'
 `vim --version`
 fail 'vim not installed. Install and start the setup again' if not $?.success?
