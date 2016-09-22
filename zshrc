@@ -56,6 +56,12 @@ plugins=(git git-flow-completion)
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:${HOME}/.bin:/sw/bin:/usr/local/opt/jenv:${HOME}/.bin:/sw/bin:/usr/local/opt/jenv"
 # export MANPATH="/usr/local/man:$MANPATH"
 
+if [[ $(system_profiler SPSoftwareDataType) ]]
+then
+  export PATH="$(brew --prefix coreutils)/libexec/gnubin:/usr/local/bin:$PATH"
+
+fi
+
 source $ZSH/oh-my-zsh.sh
 
 # You may need to manually set your language environment

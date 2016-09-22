@@ -57,7 +57,6 @@ puts 'Copying tmux.conf...'
 `cp #{scriptDir}/tmux.conf #{home}/.tmux.conf`
 fail "Failed to deploy tmux.conf" if not $?.success?
 
-
 puts 'Over all success! Happy hacking!'
 
 exit 0
