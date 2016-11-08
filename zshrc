@@ -105,4 +105,14 @@ alias mux="tmuxinator"
 alias mamp="cd /Applications/MAMP/"
 alias mampsql="/Applications/MAMP/Library/bin/mysql"
 
+alias gint="cat ~/.gitconfig"
+
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+
+
+zstyle -s ':completion:*:hosts' hosts _ssh_config
+[[ -r ~/.ssh/config ]] && _ssh_config+=($(cat ~/.ssh/config | sed -ne 's/Host[=\t ]//p'))
+zstyle ':completion:*:hosts' hosts $_ssh_config
+
+
+
