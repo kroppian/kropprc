@@ -57,6 +57,10 @@ puts 'Copying tmux.conf...'
 `cp #{scriptDir}/tmux.conf #{home}/.tmux.conf`
 fail "Failed to deploy tmux.conf" if not $?.success?
 
+puts 'Copying gitconfig...'
+`cp #{scriptDir}/gitconfig #{home}/.gitconfig`
+fail "Failed to deploy gitconfig" if not $?.success?
+
 puts 'Over all success! Happy hacking!'
 
 exit 0
