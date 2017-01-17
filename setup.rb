@@ -46,10 +46,23 @@ fail "zsh not installed. Install zsh before continuing" if not $?.success?
 
 if not File.exists?("#{home}/.oh-my-zsh")
   puts 'Downloading Oh My Zsh...'
-  `sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"; exit 0`
+  `sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)";`
   fail "Failed to download Oh My Zsh." if not $?.success?
 else 
   puts 'Oh My Zsh already deployed'
+end
+
+if not File.exists?("#{home}/.rbenv")
+  puts 'Downloading rbenv...'
+  `git clone https://github.com/rbenv/rbenv.git #{home}/.rbenv`
+  fail "Failed to download rbenv." if not $?.success?
+  
+  puts 'Attempting to compile the dynamic bash extention...'
+  `cd #{home}/.rbenv && src/configure && make -C src`
+  puts "Failed to download rbenv, but moving on." if not $?.success?
+
+else 
+  puts 'rbenv already deployed'
 end
 
 puts 'Copying zshrc...'
