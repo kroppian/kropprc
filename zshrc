@@ -62,6 +62,12 @@ then
 
 fi
 
+#
+# rbenv
+#
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
+
 source $ZSH/oh-my-zsh.sh
 
 # You may need to manually set your language environment
