@@ -18,9 +18,6 @@ call vundle#begin()
   " Twig highlighting
   Plugin 'https://github.com/evidens/vim-twig.git'
 
-  " You complete me (auto complete)
-  Plugin 'https://github.com/Valloric/YouCompleteMe.git'
-
   " NERD Tree
   Plugin 'https://github.com/scrooloose/nerdtree.git'
 
