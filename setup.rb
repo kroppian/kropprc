@@ -44,10 +44,13 @@ puts 'Looking for zsh...'
 `zsh --version`
 fail "zsh not installed. Install zsh before continuing" if not $?.success?
 
-puts 'Downloading Oh My Zsh...'
-#output=`sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"`
-#print output
-fail "Failed to download Oh My Zsh." if not $?.success?
+if not File.exists?("#{home}/.oh-my-zsh")
+  puts 'Downloading Oh My Zsh...'
+  `sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"; exit 0`
+  fail "Failed to download Oh My Zsh." if not $?.success?
+else 
+  puts 'Oh My Zsh already deployed'
+end
 
 puts 'Copying zshrc...'
 `cp #{scriptDir}/zshrc #{home}/.zshrc`
