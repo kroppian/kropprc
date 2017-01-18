@@ -60,9 +60,16 @@ if not File.exists?("#{home}/.rbenv")
   puts 'Attempting to compile the dynamic bash extention...'
   `cd #{home}/.rbenv && src/configure && make -C src`
   puts "Failed to download rbenv, but moving on." if not $?.success?
-
 else 
   puts 'rbenv already deployed'
+end
+
+if not File.exists?("#{home}/.rbenv/plugins/ruby-build")
+  puts 'Downloading ruby-build...'
+  `git clone https://github.com/rbenv/ruby-build.git #{home}/.rbenv/plugins/ruby-build`
+  fail "Failed to download ruby-build." if not $?.success?
+else 
+  puts 'ruby-build already deployed'
 end
 
 puts 'Copying zshrc...'
