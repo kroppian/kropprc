@@ -64,6 +64,11 @@ then
 fi
 
 #
+# Git
+#
+git config --global core.excludesfile '~/.gitignore'
+
+#
 # rbenv
 #
 export PATH="$HOME/.rbenv/bin:$PATH"

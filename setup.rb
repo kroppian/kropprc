@@ -22,14 +22,11 @@ fail 'vim not installed. Install and start the setup again' if not $?.success?
 
 
 if not File.directory?("#{home}/.vim/bundle/Vundle.vim")
-
   puts 'Attempting to clone Vundle...'
   `git clone https://github.com/VundleVim/Vundle.vim.git #{home}/.vim/bundle/Vundle.vim`
   fail "Failed to clone Vundle." if not $?.success?
-
 else 
   puts 'Vundle already deployed'
-
 end
 
 puts 'Copying .vimrc directory...'
@@ -84,7 +81,10 @@ puts 'Copying gitconfig...'
 `cp #{scriptDir}/gitconfig #{home}/.gitconfig`
 fail "Failed to deploy gitconfig" if not $?.success?
 
-puts 'Over all success! Happy hacking!'
+puts 'Copying gitignore'
+`cp #{scriptDir}/gitignore #{home}/.gitignore`
+fail "Failed to deploy gitignore" if not $?.success?
+puts 'Over all success. Happy hacking!'
 
 exit 0
 
