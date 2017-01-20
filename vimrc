@@ -18,9 +18,6 @@ call vundle#begin()
   " Twig highlighting
   Plugin 'https://github.com/evidens/vim-twig.git'
 
-  " NERD Tree
-  Plugin 'https://github.com/scrooloose/nerdtree.git'
-
   " Airline
   Plugin 'vim-airline/vim-airline'
 
@@ -35,6 +32,8 @@ call vundle#begin()
   " Git markdown
   Plugin 'https://github.com/plasticboy/vim-markdown.git'
 
+  " XML stuff 
+  Plugin 'https://github.com/othree/xml.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
