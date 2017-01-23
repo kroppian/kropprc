@@ -126,5 +126,7 @@ zstyle -s ':completion:*:hosts' hosts _ssh_config
 [[ -r ~/.ssh/config ]] && _ssh_config+=($(cat ~/.ssh/config | sed -ne 's/Host[=\t ]//p'))
 zstyle ':completion:*:hosts' hosts $_ssh_config
 
+export TERM=xterm-256color
+
 
 
