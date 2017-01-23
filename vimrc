@@ -88,3 +88,7 @@ set mouse=a
 " " Must be one of: xterm, xterm2, netterm, dec, jsbterm, pterm
 set ttymouse=xterm2
 
+""" Airline 
+set laststatus=2
+
+
