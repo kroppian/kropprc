@@ -35,6 +35,9 @@ call vundle#begin()
   " XML stuff 
   Plugin 'https://github.com/othree/xml.vim'
 
+  " Git tools
+  Plugin 'https://github.com/tpope/vim-fugitive.git'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
