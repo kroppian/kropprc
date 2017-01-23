@@ -49,6 +49,24 @@ else
   puts 'Oh My Zsh already deployed'
 end
 
+#if not File.exists?("#{home}/.oh-my-zsh")
+#  puts 'Downloading Oh My Zsh...'
+#  `sh -c "$(curl -fsSL https://raw.githubusercontent.com/powerline/fonts/master/install.sh)";`
+#  fail "Failed to download Oh My Zsh." if not $?.success?
+#else 
+#  puts 'Oh My Zsh already deployed'
+#end
+
+if not File.exists?("#{home}/.oh-my-zsh")
+  puts 'Downloading Oh My Zsh...'
+  `sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)";`
+  fail "Failed to download Oh My Zsh." if not $?.success?
+else 
+  puts 'Oh My Zsh already deployed'
+end
+
+
+
 if not File.exists?("#{home}/.rbenv")
   puts 'Downloading rbenv...'
   `git clone https://github.com/rbenv/rbenv.git #{home}/.rbenv`

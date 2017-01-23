@@ -91,4 +91,6 @@ set ttymouse=xterm2
 """ Airline 
 set laststatus=2
 
+let g:airline_powerline_fonts = 1
+
 
