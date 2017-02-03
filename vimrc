@@ -38,6 +38,9 @@ call vundle#begin()
   " Git tools
   Plugin 'https://github.com/tpope/vim-fugitive.git'
 
+  " Async
+  Plugin 'skywind3000/asyncrun.vim'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -95,5 +98,8 @@ set ttymouse=xterm2
 set laststatus=2
 
 let g:airline_powerline_fonts = 1
+
+""" Spelling 
+spelllang=en_us
 
 
