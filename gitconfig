@@ -13,3 +13,8 @@
   s = status -sb
 
 
+[core]
+	excludesfile = ~/.gitignore
+[user]
+	email = iankropp@gmail.com
+	name = Ian Kropp
