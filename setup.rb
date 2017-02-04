@@ -95,6 +95,10 @@ puts 'Copying tmux.conf...'
 `cp #{scriptDir}/tmux.conf #{home}/.tmux.conf`
 fail "Failed to deploy tmux.conf" if not $?.success?
 
+if not /linux/ =~ RUBY_PLATFORM
+  `echo 'set-option -g default-command "reattach-to-user-namespace -l zsh"' >> #{home}/.tmux.conf`
+end
+
 puts 'Copying gitconfig...'
 `cp #{scriptDir}/gitconfig #{home}/.gitconfig`
 fail "Failed to deploy gitconfig" if not $?.success?
