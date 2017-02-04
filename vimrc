@@ -100,6 +100,6 @@ set laststatus=2
 let g:airline_powerline_fonts = 1
 
 """ Spelling 
-spelllang=en_us
+set spelllang=en_us
 
 
