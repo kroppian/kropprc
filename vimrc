@@ -102,4 +102,7 @@ let g:airline_powerline_fonts = 1
 """ Spelling 
 set spelllang=en_us
 
+""" No beep
+set noerrorbells visualbell t_vb=
+
 
