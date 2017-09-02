@@ -15,11 +15,9 @@ puts 'Checking for vim...'
 `vim --version`
 fail 'vim not installed. Install and start the setup again' if not $?.success?
 
-
-  puts 'Creating the .vim directory...'
-  `mkdir -p #{home}/.vim/bundle`
-  fail "Failed to create the .vim directory" if not $?.success?
-
+puts 'Creating the .vim directory...'
+`mkdir -p #{home}/.vim/bundle`
+fail "Failed to create the .vim directory" if not $?.success?
 
 if not File.directory?("#{home}/.vim/bundle/Vundle.vim")
   puts 'Attempting to clone Vundle...'
@@ -49,14 +47,6 @@ else
   puts 'Oh My Zsh already deployed'
 end
 
-#if not File.exists?("#{home}/.oh-my-zsh")
-#  puts 'Downloading Oh My Zsh...'
-#  `sh -c "$(curl -fsSL https://raw.githubusercontent.com/powerline/fonts/master/install.sh)";`
-#  fail "Failed to download Oh My Zsh." if not $?.success?
-#else 
-#  puts 'Oh My Zsh already deployed'
-#end
-
 if not File.exists?("#{home}/.oh-my-zsh")
   puts 'Downloading Oh My Zsh...'
   `sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)";`
@@ -64,8 +54,6 @@ if not File.exists?("#{home}/.oh-my-zsh")
 else 
   puts 'Oh My Zsh already deployed'
 end
-
-
 
 if not File.exists?("#{home}/.rbenv")
   puts 'Downloading rbenv...'
@@ -94,6 +82,19 @@ fail "Failed to deploy zshrc" if not $?.success?
 puts 'Copying tmux.conf...'
 `cp #{scriptDir}/tmux.conf #{home}/.tmux.conf`
 fail "Failed to deploy tmux.conf" if not $?.success?
+
+# Putting in version specific tmux conf commands 
+version=`tmux -V`
+if version.gsub(/tmux |\n/, '').to_f > 2.3
+  `echo "bind-key -T copy-mode-vi 'v' send -X begin-selection" >> #{home}/.tmux.conf`
+  `echo "bind-key -T copy-mode-vi 'y' send -X copy-selection-and-cancel" >> #{home}/.tmux.conf`
+else
+  `echo "bind-key -t vi-copy 'v' begin-selection" >> #{home}/.tmux.conf`
+  `echo "bind-key -t vi-copy 'y' copy-selection" >> #{home}/.tmux.conf`
+end
+
+
+
 
 if not /linux/ =~ RUBY_PLATFORM
   `echo 'set-option -g default-command "reattach-to-user-namespace -l zsh"' >> #{home}/.tmux.conf`
