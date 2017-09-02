@@ -63,6 +63,17 @@ then
 
 fi
 
+if [[ -e /mnt/c/ ]]
+then
+
+  export JAVA_HOME=/
+
+else
+
+  export JAVA_HOME=/usr/lib/jvm/java-8-openjdk/
+
+fi
+
 #
 # Git
 #
