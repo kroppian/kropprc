@@ -14,7 +14,8 @@
 
 
 [core]
-	excludesfile = ~/.gitignore
+  excludesfile = ~/.gitignore
+  autocrlf = true
 [user]
 	email = iankropp@gmail.com
 	name = Ian Kropp
