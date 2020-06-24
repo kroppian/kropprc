@@ -76,6 +76,7 @@ set smartcase                   " ... unless they contain at least one capital l
 set number
 
 """colorscheme twilight
+colorscheme morning
 
 set ignorecase
 
