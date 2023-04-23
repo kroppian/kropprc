@@ -40,7 +40,7 @@ call vundle#begin()
   " Async
   Plugin 'skywind3000/asyncrun.vim'
   
-  " copilot
+  " copilot (Run `:Copilot setup` after installed)
   Plugin 'github/copilot.vim'
 
 " All of your Plugins must be added before the following line
