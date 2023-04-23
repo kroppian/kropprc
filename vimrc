@@ -39,6 +39,9 @@ call vundle#begin()
 
   " Async
   Plugin 'skywind3000/asyncrun.vim'
+  
+  " copilot
+  Plugin 'github/copilot.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -92,7 +95,7 @@ set mouse=a
 "
 " " Set this to the name of your terminal that supports mouse codes.
 " " Must be one of: xterm, xterm2, netterm, dec, jsbterm, pterm
-set ttymouse=xterm2
+" set ttymouse=xterm2
 
 """ Airline 
 set laststatus=2
