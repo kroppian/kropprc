@@ -93,9 +93,6 @@ else
   `echo "bind-key -t vi-copy 'y' copy-selection" >> #{home}/.tmux.conf`
 end
 
-
-
-
 if not /linux/ =~ RUBY_PLATFORM
   `echo 'set-option -g default-command "reattach-to-user-namespace -l zsh"' >> #{home}/.tmux.conf`
 end
@@ -108,6 +105,9 @@ puts 'Copying gitignore'
 `cp #{scriptDir}/gitignore #{home}/.gitignore`
 fail "Failed to deploy gitignore" if not $?.success?
 puts 'Over all success. Happy hacking!'
+
+puts 'Fixing hard to read ls -l output'
+`cp #{scriptDir}/dir_colors #{home}/.dir_colors` 
 
 exit 0
 

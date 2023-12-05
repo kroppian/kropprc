@@ -153,4 +153,7 @@ else
 fi
 unset __conda_setup
 # <<< conda initialize <<<
+#
+eval "$(dircolors $HOME/.dir_colors)"
+
 
